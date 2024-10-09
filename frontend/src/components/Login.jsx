@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import "./Login.css";
-// import RegisterMDB from "./RegisterMDB";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -157,8 +156,6 @@ export default function Login() {
           </Button>
         </Link>
       </p>
-
-      {/* <RegisterMDB /> */}
     </div>
   );
 }

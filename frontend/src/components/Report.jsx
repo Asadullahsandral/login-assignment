@@ -12,9 +12,6 @@ import {
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import Selector from "./Selector";
-import Quizcreator from "./quiz/Quizcreator";
-import CreateQuiz from "./quiz/CreateQuiz";
 
 const Report = () => {
   const [startDate, setStartDate] = useState("");
@@ -54,8 +51,8 @@ const Report = () => {
       const response = await axios.get("http://localhost:8000/api/report", {
         params: { startDate, endDate },
       });
-      console.log(response.data); // Assuming the API returns an array of users
-      setUsers(response.data); // Assuming the API returns an array of users
+      console.log(response.data);
+      setUsers(response.data);
       setError("");
     } catch (err) {
       setError("Failed to fetch report data.");
@@ -80,9 +77,6 @@ const Report = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar>
-              {/* <Link to="/users">
-                <Button variant="outline-success">View All Users</Button>
-              </Link> */}
               <Button className="btn btn-warning mx-2 " onClick={handleLogout}>
                 Logout
               </Button>
@@ -90,7 +84,6 @@ const Report = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <CreateQuiz />
       <h1
         style={{
           background: "linear-gradient(120deg,#2980b9, #8e44ad)",

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Navbar, Container, Row, Col } from "react-bootstrap";
+import { Button, Navbar, Container } from "react-bootstrap";
 import Editcurrentuser from "./Editcurrentuser";
 import Addinfo from "./Addinfo";
-// import Navbars from "./Navbar";
-// import RegisterMDB from "./RegisterMDB";
 import "./userinfo.css";
 import Swal from "sweetalert2";
-import CreateQuiz from "./quiz/CreateQuiz";
 
 const Userinfo = () => {
   const [user, setUser] = useState(null);
@@ -234,25 +231,16 @@ const Userinfo = () => {
 
   return (
     <div className="container my-4">
-      {/* <Navbars
-        handleAddMoreInfo={handleAddMoreInfo}
-        handleDelete={handleDelete}
-        handleEdit={handleEdit}
-        handleLogout={handleLogout}
-      /> */}
       <Navbar className="bg-body-tertiary bg-primary-subtle">
         <Container>
           <Navbar.Brand>
-            <Link to="/report">
+            <Link to="/users">
               <Button variant="outline-success">View All Users</Button>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar>
-              {/* <Link to="/users">
-                <Button variant="outline-success">View All Users</Button>
-              </Link> */}
               <Button className="btn btn-warning mx-2 " onClick={handleLogout}>
                 Logout
               </Button>
@@ -263,9 +251,6 @@ const Userinfo = () => {
 
       <div className="container">
         <div className="main">
-          {/* <div className="topbar">
-            <a href="/">Logout</a>
-          </div> */}
           <div className="row">
             <div className="col-md-4 mt-1">
               <div className="card text-center sidebar align-items-center py-3">
@@ -410,140 +395,8 @@ const Userinfo = () => {
         handleChangeUser={handleChangeUser}
         setSkills={setSkills}
       />
-      {/* <RegisterMDB /> */}
-      {/* <CreateQuiz /> */}
     </div>
   );
 };
 
 export default Userinfo;
-
-{
-  /* <h1>Logged In User Information</h1> */
-}
-{
-  /* <div className="card p-4 mt-5" style={{ textAlign: "start" }}>
-        <h2 style={{ textAlign: "center", fontWeight: "bold" }}>
-          CURRENT USER INFORMATION
-        </h2>
-        <Container>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Name:</strong>{" "}
-            </Col>
-            <Col>
-              {user.firstName} {user.lastName}
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Email:</strong>{" "}
-            </Col>
-            <Col>{user.email}</Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Username:</strong>{" "}
-            </Col>
-            <Col>{user.username}</Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Address:</strong>{" "}
-            </Col>
-            <Col>
-              {user.address}, {user.city}, {user.province}, {user.country}
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Education:</strong>{" "}
-            </Col>
-            <Col>
-              {user.education} {user.degreeTitle}, {user.majorSubjects},{" "}
-              {user.instituteName}, {user.startDate}-{user.endDate}
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Marital Status:</strong>{" "}
-            </Col>
-            <Col>{user.maritalStatus}</Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Skills:</strong>{" "}
-            </Col>
-            <Col>
-              {user.skilltitle},{user.skillLevel}
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Work Experinence:</strong>{" "}
-            </Col>
-            <Col>
-              {user.title}, {user.organization}, {user.fromDate} - {user.toDate}
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col xs lg="4">
-              <strong>Profile Image:</strong>{" "}
-            </Col>
-            <Col>
-              <img
-                src={"http://localhost:8000/" + user.profileImage}
-                alt="Profile"
-                style={{ width: "100px", height: "100px" }}
-              />
-            </Col>
-          </Row>
-        </Container>
-        {/* <p>
-          <strong>Name:</strong> {user.firstName} {user.lastName}
-        </p>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p> 
-        <p>
-          <strong>Username:</strong> {user.username}
-        </p>
-        <p>
-          <strong>Address:</strong> {user.address}, {user.city}, {user.province}
-          , {user.country}
-        </p>
-        <p>
-          <strong>Education:</strong> {user.education} {user.degreeTitle},{" "}
-          {user.majorSubjects}, {user.endDate} - {user.startDate},
-          {user.instituteName}
-        </p>
-        <p>
-          <strong>Marital Status:</strong> {user.maritalStatus}
-        </p>
-        <p>
-          <strong>Skills:</strong> {user.skilltitle},{user.skillLevel}
-        </p>
-        <p>
-          <strong>Work Experience:</strong> {user.title}, {user.organization},{" "}
-          {user.fromDate} - {user.toDate}
-        </p> 
-
-        <p>
-          <strong>Profile Image:</strong>{" "}
-          <img
-            src={"http://localhost:8000/" + user.profileImage}
-            alt="Profile"
-            style={{ width: "100px", height: "100px" }}
-          />
-        </p>
-        <Button className="btn btn-primary mb-2" onClick={handleEdit}>
-          Edit
-        </Button>
-        <Button className="btn btn-danger" onClick={handleDelete}>
-          Delete
-        </Button>
-        <Button className="btn btn-primary mt-2" onClick={handleAddMoreInfo}>
-          Add More Info
-        </Button>
-      </div> */
-}

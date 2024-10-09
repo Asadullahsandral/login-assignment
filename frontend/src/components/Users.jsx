@@ -17,7 +17,6 @@ import Box from "@mui/material/Box";
 import TablePagination from "@mui/material/TablePagination";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import RegisterMDB from "./RegisterMDB";
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -39,7 +38,6 @@ const User = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (isTokenExpired(token)) {
-      // alert("Session expired Please log in again.");
       Swal.fire({
         title: "Session expired",
         text: "please log in again",
@@ -127,17 +125,7 @@ const User = () => {
     }
     setPage(0);
   };
-  // const handleSearchChange = (event) => {
-  //   const value = event.target.value.toLowerCase();
-  //   setSearchTerm(value);
-  //   const filtered = users.filter(
-  //     (user) =>
-  //       `${user.fname} ${user.lname}`.toLowerCase().includes(value) ||
-  //       user.email.toLowerCase().includes(value)
-  //   );
-  //   setUsers(filtered);
-  //   setPage(0);
-  // };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -170,9 +158,6 @@ const User = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar>
-              {/* <Link to="/users">
-                <Button variant="outline-success">View All Users</Button>
-              </Link> */}
               <Button className="btn btn-warning mx-2 " onClick={handleLogout}>
                 Logout
               </Button>
@@ -416,110 +401,8 @@ const User = () => {
           )}
         </Modal.Body>
       </Modal>
-
-      {/* <RegisterMDB className="mt-5" /> */}
     </div>
   );
 };
 
 export default User;
-
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-
-// const User = () => {
-//   const [users, setUsers] = useState([]);
-//   const [error, setError] = useState("");
-//   const navigate = useNavigate();
-
-//   const fetchUsers = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:8000/api/getAll");
-//       setUsers(response.data);
-//     } catch (err) {
-//       setError("Failed to fetch users.");
-//     }
-//   };
-
-//   const handleView = (userId) => {
-//     navigate(`/userinfo/${userId}`);
-//   };
-
-//   const handleDelete = async (userId) => {
-//     const confirmDelete = window.confirm(
-//       "Are you sure you want to delete this user?"
-//     );
-//     if (confirmDelete) {
-//       try {
-//         await axios.delete(`http://localhost:8000/api/delete/${userId}`);
-//         fetchUsers();
-//       } catch (err) {
-//         setError("Failed to delete user.");
-//       }
-//     }
-//   };
-
-//   const handleUpdate = (userId) => {
-//     navigate(`/edit/${userId}`);
-//   };
-
-//   useEffect(() => {
-//     fetchUsers();
-//   }, []);
-
-//   if (error) return <p className="text-danger">{error}</p>;
-
-//   return (
-//     <div className="container my-4">
-//       <h1>All Users</h1>
-//       <table className="table">
-//         <thead>
-//           <tr>
-//             <th>Sr No</th>
-//             <th>Name</th>
-//             <th>Email</th>
-//             <th>Marital Status</th>
-//             <th>City</th>
-//             <th>Action</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {users.map((user, index) => (
-//             <tr key={user._id}>
-//               <td>{index + 1}</td>
-//               <td>
-//                 {user.firstName} {user.lastName}
-//               </td>
-//               <td>{user.email}</td>
-//               <td>{user.maritalStatus}</td>
-//               <td>{user.city}</td>
-//               <td>
-//                 <button
-//                   className="btn btn-info me-2"
-//                   onClick={() => handleView(user._id)}
-//                 >
-//                   View
-//                 </button>
-//                 <button
-//                   className="btn btn-warning me-2"
-//                   onClick={() => handleUpdate(user._id)}
-//                 >
-//                   Update
-//                 </button>
-//                 <button
-//                   className="btn btn-danger"
-//                   onClick={() => handleDelete(user._id)}
-//                 >
-//                   Delete
-//                 </button>
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default User;
